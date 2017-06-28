@@ -16,7 +16,8 @@ port = 8000
 httpd = make_server(host, port, bootstrap)
 print("Serving on port {}...".format(port))
 
-
+os.system("HTTP_PORT=3001 P2P_PORT=6001 npm start &")
+os.system("HTTP_PORT=3002 P2P_PORT=6002 PEERS=ws://localhost:6001 npm start &")
 
 httpd.serve_forever()
 
